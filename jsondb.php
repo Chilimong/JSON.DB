@@ -3,7 +3,7 @@
 		-- JSON.DB --
 		A PHP class created in order to use JSON files in a database-like way
 		
-		Author: Vladi Pryadko
+		https://github.com/Chilimong/JSON.DB/
 		Version: 1.00
 	*/
 	class JSONDB

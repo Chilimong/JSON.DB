@@ -1,0 +1,8 @@
+<Files "db.json">
+  Order allow,deny
+  Deny from all
+</Files>
+<Files "jsondb.php">
+  Order allow,deny
+  Deny from all
+</Files>

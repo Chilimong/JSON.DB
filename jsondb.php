@@ -4,7 +4,7 @@
 		A PHP class created in order to use JSON files in a database-like way
 		
 		https://github.com/Chilimong/JSON.DB/
-		Version: 1.01 
+		Version: 1.02
 	*/
 	class JSONDB
 	{
@@ -27,7 +27,7 @@
 			trigger_error($error, E_USER_ERROR);
 		}
 		
-		public function getTables() // Returns: Array
+		public function getTables()
 		{
 			return array_keys($this->data);	
 		}
@@ -35,7 +35,7 @@
 		public function newTable($name, $structure)
 		{
 			if(!is_array($structure)) $this->Error('You must pass an array to the "newTable" function as the 2nd parameter.');
-			$this->data[$name] = array($structure); 
+			$this->data[$name] = array($structure);
 			$this->Save();
 			return $this;
 		}
@@ -44,6 +44,14 @@
 		{
 			unset($this->data[$name]);
 			$this->Save();
+			return $this;
+		}
+		
+		public function Truncate($table)
+		{
+			$this->data[$table] = array($this->data[$table][0]);
+			$this->Save();
+			return $this;
 		}
 		
 		public function Insert($table, $data)

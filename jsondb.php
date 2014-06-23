@@ -4,7 +4,7 @@
 		A PHP class created in order to use JSON files in a database-like way
 		
 		Author: Vladi Pryadko
-		Version: 1.00
+		Version: 1.01
 	*/
 	class JSONDB
 	{
@@ -35,9 +35,15 @@
 		public function newTable($name, $structure)
 		{
 			if(!is_array($structure)) $this->Error('You must pass an array to the "newTable" function as the 2nd parameter.');
-			array_push($this->data, $structure);
+			$this->data[$name] = array($structure); 
 			$this->Save();
 			return $this;
+		}
+		
+		public function deleteTable($name)
+		{
+			unset($this->data[$name]);
+			$this->Save();
 		}
 		
 		public function Insert($table, $data)

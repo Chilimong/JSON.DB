@@ -4,7 +4,7 @@
 		A PHP class created in order to use JSON files in a database-like way
 		
 		https://github.com/Chilimong/JSON.DB/
-		Version: 1.01
+		Version: 1.01 
 	*/
 	class JSONDB
 	{
